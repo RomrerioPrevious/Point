@@ -1,15 +1,14 @@
-from bin.models.interactive_objects import Point1D
-from pygame.sprite import Sprite
+from pygame.sprite import Sprite, Group
 import pygame
 import sys
 
 
 class EventController:
-    def __init__(self, screen: pygame.display):
+    def __init__(self, screen: pygame.Surface, all_sprites: Group):
         self.screen = screen
+        self.all_sprites = all_sprites
 
-    @staticmethod
-    def parse_event(event: pygame.event) -> Sprite or None:
+    def parse_event(self, event: pygame.event) -> Sprite | None:
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
