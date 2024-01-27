@@ -1,5 +1,6 @@
 from pygame.sprite import Sprite, Group
-from bin.models.states import States
+from bin.models.states import PointStates
+from bin.models.constants import Constants
 import pygame
 
 
@@ -32,9 +33,9 @@ class Point1D(Sprite):
             self.dead()
 
     def dead(self):
-        self.update(condition=States.DIE)
+        ...
 
-    def update(self, position: int = None, condition: States = States.CALM, position_plus: int = 0):
+    def update(self, position: int = None, condition: PointStates = PointStates.CALM, position_plus: int = 0):
         if position:
             self.rect.x = position
         self.rect.x += position_plus

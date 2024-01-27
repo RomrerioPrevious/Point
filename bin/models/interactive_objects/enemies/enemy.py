@@ -5,12 +5,12 @@ from abc import ABC
 
 
 class Enemy(Sprite, ABC):
-    def __init__(self, enemy: Group):
+    def __init__(self, enemy: Group, coordinates: (int, int)):
         super().__init__(enemy)
         self.image = pygame.image.load("resources/sprites/enemy.png")
         self.rect = self.image.get_rect()
-        self.rect.x = 150
-        self.rect.y = 150
+        self.rect.x = coordinates[0]
+        self.rect.y = coordinates[1]
 
     def update(self, position: (int, int) = None, position_plus: (int, int) = (0, 0)):
         if position:

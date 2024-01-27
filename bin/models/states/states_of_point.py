@@ -1,4 +1,4 @@
-class States:
+class PointStates:
     CALM = 0
     PULL = 1
     NOCLIP = 2

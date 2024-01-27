@@ -1,5 +1,6 @@
 from pygame.sprite import Sprite, Group
 from bin.models.interactive_objects import Point1D
+from bin.models.states import Direction
 import pygame
 import sys
 
@@ -9,7 +10,7 @@ class KeysController:
         self.screen = screen
         self.all_sprites = all_sprites
         self.point = point
-        self.speed = 1
+        self.speed = 3
 
     def parse_event(self, event: pygame.event) -> Sprite | None:
         if event.type == pygame.QUIT:
@@ -27,11 +28,17 @@ class KeysController:
         return None
 
     def pressed(self):
+        direction = self.direction()
+        match direction:
+            case Direction.LEFT:
+                self.point.update(position_plus=-self.speed)
+            case Direction.RIGHT:
+                self.point.update(position_plus=self.speed)
+
+    @staticmethod
+    def direction() -> Direction:
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            self.point.update(position_plus=-self.speed)
+            return Direction.LEFT
         if keys[pygame.K_RIGHT]:
-            self.point.update(position_plus=self.speed)
-
-    def direction(self):
-        ...
+            return Direction.RIGHT
