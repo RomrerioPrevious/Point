@@ -5,8 +5,8 @@ from abc import ABC
 
 
 class Enemy(Sprite, ABC):
-    def __init__(self, enemy: Group, coordinates: (int, int)):
-        super().__init__(enemy)
+    def __init__(self, enemy_group: Group, coordinates: (int, int)):
+        super().__init__(enemy_group)
         self.image = pygame.image.load("resources/sprites/enemy.png")
         self.rect = self.image.get_rect()
         self.rect.x = coordinates[0]

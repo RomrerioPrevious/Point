@@ -8,7 +8,7 @@ import pygame
 
 class EventController:
     def __init__(self, screen: pygame.Surface, all_sprites_groups: dict[str, Group], main_character: Point1D):
-        self.controllers = {"keys": KeysController(screen, all_sprites_groups["All"], main_character)}
+        self.controllers = {"keys": KeysController(screen, main_character)}
         self.point = main_character
         self.all_sprites = all_sprites_groups
         self.screen = screen
@@ -27,8 +27,9 @@ class EventController:
         for event in pygame.event.get():
             update = controller.parse_event(event)
         controller.pressed()
+        controller.point.update()
 
-    def scripts(self):
+    def triggers(self):
         ...
 
     def dialogs(self) -> bool:
