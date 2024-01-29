@@ -1,6 +1,5 @@
 from .keys_controller import KeysController
-from pygame.sprite import Sprite, Group
-from bin.handlers.camera import Camera
+from pygame.sprite import Group
 from bin.models.constants import Constants
 from bin.models.interactive_objects import Point1D
 import pygame

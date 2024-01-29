@@ -1,9 +1,9 @@
 {
   "auto save": {
-    "room": 1,
-    "collected items": [],
-    "respect": [],
-    "abilities": [],
-    "dimensionality": 0
+    "background": 1,
+    "dialogs": [],
+    "opened": [],
+    "coins": 0,
+    "max_point": 0
   }
 }

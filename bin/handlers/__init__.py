@@ -1,2 +1,1 @@
-from .events import *
-from .camera import *
+from bin.handlers.game import *
