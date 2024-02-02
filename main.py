@@ -1,17 +1,18 @@
 from bin.handlers import EventController
-from bin.models.interactive_objects import Point1D, Enemy
+from bin.models.interactive_objects import Point1D, Obstacle
 from pygame.sprite import Sprite, Group
+from icecream import ic
 import pygame
 
 
 def main():
     screen = init_window()
-    all_sprites = {"Point": Group(), "Enemy": Group(), "Triggers": Group(), "Decoration": Group()}
-    point = Point1D(all_sprites["Point"], all_sprites["Enemy"])
+    all_sprites = {"Point": Group(), "Enemy": Group(), "Triggers": Group(), "Decoration": Group(), "Walls": Group()}
+    point = Point1D(all_sprites["Point"])
     controller = EventController(screen=screen,
                                  all_sprites_groups=all_sprites,
                                  main_character=point)
-    Enemy(all_sprites["Enemy"], (200, 400))
+    Obstacle(all_sprites["Enemy"], (200, 400))
     while True:
         controller.create_frame()
 

@@ -16,5 +16,5 @@ class Enemy(Sprite, ABC):
         if position:
             self.rect.x = position[0]
             self.rect.y = position[1]
-        self.rect.x += position[0]
-        self.rect.y += position[1]
+        self.rect.x += position_plus[0]
+        self.rect.y += position_plus[1]
