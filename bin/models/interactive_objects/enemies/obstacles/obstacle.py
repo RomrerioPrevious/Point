@@ -1,5 +1,3 @@
-from icecream import ic
-
 from bin.models.interactive_objects.enemies.enemy import Enemy
 from pygame.sprite import Sprite, Group
 import pygame
